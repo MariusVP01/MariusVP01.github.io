@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="no">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Video-bakgrunn med Grid (uten position)</title>
+    <link rel="stylesheet" href="Video.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <h1>Min Blogg</h1>
+    </header>
+
+    <main class="stage">
+      <video
+        class="bg-video"
+        src="video.mp4"
+        autoplay
+        muted
+        loop
+        playsinline
+        width="1920"
+        height="1080"
+      ></video>
+      <!-- Kort/artikler som overlapper videoen som egne grid-items -->
+       
+      <a href="Blogg1.html" class="card card1">
+        <h3>Artikkel 1</h3>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequatur,
+          iste? Voluptates vero impedit explicabo aut facere et minima
+          accusantium est error, id, corporis, sit facilis ipsum quasi? Sequi
+          tempore quod facere accusamus adipisci natus, hic excepturi eos
+          quibusdam nostrum libero obcaecati fugit, nisi repudiandae aut!
+        </p>
+      <a href="Spesifikt.html" class="bokser boks1">
+        <h6>Velkommen til Norge</h6>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequatur,
+          iste? Voluptates vero impedit explicabo aut facere et minima
+          accusantium est error, id, corporis, sit facilis ipsum quasi? Sequi
+          tempore quod facere accusamus adipisci natus, hic excepturi eos
+          quibusdam nostrum libero obcaecati fugit, nisi repudiandae aut!
+        </p>
+      </a>
+
+      <div class="bokser boks2">Boks2</div>
+
+      <!-- Video som grid-item som dekker hele stage -->
+    </main>
+
+    <footer class="site-footer">© 2025 – Enkel demo</footer>
+  </body>
+</html>

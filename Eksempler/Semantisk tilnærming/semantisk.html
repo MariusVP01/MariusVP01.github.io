@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="no">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Semantisk HTML – Eksempel</title>
+    <link rel="stylesheet" href="semantisk.css" />
+  </head>
+  <body>
+    <header>
+      <h1>Firma AS</h1>
+      <p>Slogan: Kvalitet siden 1999</p>
+      <nav aria-label="Hovedmeny">
+        <ul>
+          <li><a href="#">Hjem</a></li>
+          <li><a href="#">Tjenester</a></li>
+          <li><a href="#">Om oss</a></li>
+          <li><a href="#">Kontakt</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main>
+      <section aria-labelledby="seksjon-nytt">
+        <h2 id="seksjon-nytt">Aktuelt</h2>
+
+        <article aria-labelledby="art1-tittel">
+          <header>
+            <h3 id="art1-tittel">Lansering av ny tjeneste</h3>
+            <p>
+              <time datetime="2025-09-01">1. september 2025</time> – av
+              Redaksjonen
+            </p>
+          </header>
+          <p>
+            Vi lanserer en ny tjeneste som gjør det enklere å bestille support.
+          </p>
+          <footer>
+            <a href="#">Les mer</a>
+          </footer>
+        </article>
+
+        <article aria-labelledby="art2-tittel">
+          <header>
+            <h3 id="art2-tittel">Oppgraderinger i summer</h3>
+            <p><time datetime="2025-08-15">15. august 2025</time> – av Drift</p>
+          </header>
+          <p>Våre systemer har fått forbedret ytelse og stabilitet.</p>
+          <footer>
+            <a href="#">Les mer</a>
+          </footer>
+        </article>
+      </section>
+
+      <aside aria-label="Sideinformasjon">
+        <h2>Snarveier</h2>
+        <ul>
+          <li><a href="#">Driftsmeldinger</a></li>
+          <li><a href="#">Ofte stilte spørsmål</a></li>
+          <li><a href="#">Kundeservice</a></li>
+        </ul>
+      </aside>
+    </main>
+
+    <footer>
+      <p>&copy; 2025 Firma AS – Org.nr. 999 999 999</p>
+      <address>
+        <a href="mailto:post@firma.no">post@firma.no</a> ·
+        <a href="tel:+4712345678">+47 12 34 56 78</a>
+      </address>
+    </footer>
+  </body>
+</html>

@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="no">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Oslo – Besøk Norge</title>
+    <link rel="stylesheet" href="Nettside2.css" />
+  </head>
+  <body>
+    <!-- HEADER (samme som på forsiden) -->
+    <header>
+      <div class="Overskrift"><h1>Besøk Norge</h1></div>
+      <nav class="meny">
+        <a href="Nettside.html">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 50 50"
+            class="ikon"
+            aria-hidden="true"
+          >
+            <path
+              d="M 24.962891 1.0546875 A 1.0001 1.0001 0 0 0 24.384766 1.2636719 L 1.3847656 19.210938 A 1.0005659 1.0005659 0 0 0 2.6152344 20.789062 L 4 19.708984 L 4 46 A 1.0001 1.0001 0 0 0 5 47 L 18.832031 47 A 1.0001 1.0001 0 0 0 19.158203 47 L 30.832031 47 A 1.0001 1.0001 0 0 0 31.158203 47 L 45 47 A 1.0001 1.0001 0 0 0 46 46 L 46 19.708984 L 47.384766 20.789062 A 1.0005657 1.0005657 0 1 0 48.615234 19.210938 L 41 13.269531 L 41 6 L 35 6 L 35 8.5859375 L 25.615234 1.2636719 A 1.0001 1.0001 0 0 0 24.962891 1.0546875 z M 25 3.3222656 L 44 18.148438 L 44 45 L 32 45 L 32 26 L 18 26 L 18 45 L 6 45 L 6 18.148438 L 25 3.3222656 z M 37 8 L 39 8 L 39 11.708984 L 37 10.146484 L 37 8 z M 20 28 L 30 28 L 30 45 L 20 45 L 20 28 z"
+            ></path>
+          </svg>
+          <h6>Hjem</h6>
+        </a>
+
+        <a href="#">
+          <svg
+            viewBox="0 0 32 32"
+            focusable="false"
+            class="ikon"
+            xmlns="http://www.w3.org/2000/svg"
+            aria-hidden="true"
+          >
+            <path
+              d="M13.25 24.5C19.4632 24.5 24.5 19.4632 24.5 13.25C24.5 7.0368 19.4632 2 13.25 2C7.0368 2 2 7.0368 2 13.25C2 19.4632 7.0368 24.5 13.25 24.5Z"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linejoin="round"
+            ></path>
+            <path
+              d="M21.1917 21L28.8309 28.6392"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linejoin="round"
+            ></path>
+          </svg>
+          <h6>Søk</h6>
+        </a>
+
+        <a href="#">
+          <svg
+            viewBox="0 0 32 32"
+            focusable="false"
+            class="ikon"
+            xmlns="http://www.w3.org/2000/svg"
+            aria-hidden="true"
+          >
+            <path
+              d="M30 16H2"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-miterlimit="10"
+              stroke-linecap="square"
+            ></path>
+            <path
+              d="M30 7H2"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-miterlimit="10"
+              stroke-linecap="square"
+            ></path>
+            <path
+              d="M30 25H16"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-miterlimit="10"
+              stroke-linecap="square"
+            ></path>
+          </svg>
+          <h6>Meny</h6>
+        </a>
+      </nav>
+    </header>
+
+    <main>
+      <!-- HERO med video eller stillbilde (bruker samme .Video + .bokser som forsiden) -->
+      <div class="Video">
+        <!-- Du kan bytte til et stillbilde om du vil:
+      <img class="bg-video" src="Bilder/OsloHero.jpg" alt="Utsikt over Oslo" />
+      -->
+        <video
+          class="bg-video"
+          src="video-oslo.mp4"
+          autoplay
+          muted
+          loop
+          playsinline
+          width="1920"
+          height="1080"
+        ></video>
+
+        <a href="#" class="bokser boks1">
+          <h3>Oppdag Oslo</h3>
+          <p>
+            Hovedstaden byr på moderne arkitektur, fjord, parker og kultur i
+            verdensklasse. Gå langs Operataket, besøk MUNCH og ny
+            <em>byen mellom marka og fjorden</em>.
+          </p>
+        </a>
+      </div>
+
+      <!-- Kort/grid – tre forslag/opplevelser i Oslo -->
+      <div class="innpakning">
+        <div class="artikler">
+          <a href="#" class="artikkel artikkel1">
+            <h2>Operahuset</h2>
+            <img src="Bilder/Oslo_Opera.jpg" alt="Operahuset i Oslo" />
+          </a>
+
+          <a href="#" class="artikkel artikkel2">
+            <h2>MUNCH</h2>
+            <img src="Bilder/Oslo_Munch.jpg" alt="MUNCH-museet i Bjørvika" />
+          </a>
+
+          <a href="#" class="artikkel artikkel3">
+            <h2>Vigelandsparken</h2>
+            <img src="Bilder/Oslo_Vigeland.jpg" alt="Vigelandsparken i Oslo" />
+          </a>
+
+          <a href="#" class="artikkel artikkel4">
+            <h2>Aker Brygge</h2>
+            <img
+              src="Bilder/Oslo_AkerBrygge.jpg"
+              alt="Aker Brygge havnepromenade"
+            />
+          </a>
+
+          <a href="#" class="artikkel artikkel5">
+            <h2>Bygdøy museene</h2>
+            <img src="Bilder/Oslo_Bygdoy.jpg" alt="Museene på Bygdøy" />
+          </a>
+
+          <a href="#" class="artikkel artikkel6">
+            <h2>Oslomarka</h2>
+            <img src="Bilder/Oslo_Marka.jpg" alt="Tur i Oslomarka" />
+          </a>
+        </div>
+      </div>
+
+
+
+    <!-- FOOTER (samme som på forsiden) -->
+    <footer class="footer">
+      <div class="footer-wrap">
+        <section class="info">
+          <h3>Info</h3>
+          <ul>
+            <li><a href="#">Om oss</a></li>
+            <li><a href="#">Personvern</a></li>
+            <li><a href="#">Vilkår</a></li>
+          </ul>
+        </section>
+
+        <section class="kontakt">
+          <h3>Kontakt oss</h3>
+          <ul>
+            <li><a href="mailto:post@besoknorge.no">post@besoknorge.no</a></li>
+            <li><a href="tel:+4712345678">+47 12 34 56 78</a></li>
+            <li>Hverdager 09–15</li>
+          </ul>
+        </section>
+
+        <section class="follow">
+          <h3>Følg oss</h3>
+          <nav class="social">
+            <a href="#" aria-label="Følg på Instagram">
+              <svg viewBox="0 0 24 24" class="ikon" aria-hidden="true">
+                <rect
+                  x="3"
+                  y="3"
+                  width="18"
+                  height="18"
+                  rx="5"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                />
+                <circle
+                  cx="12"
+                  cy="12"
+                  r="4"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                />
+                <circle cx="17.5" cy="6.5" r="1.2" />
+              </svg>
+            </a>
+            <a href="#" aria-label="Følg på Facebook">
+              <svg viewBox="0 0 24 24" class="ikon" aria-hidden="true">
+                <path
+                  d="M15 8h-2a2 2 0 0 0-2 2v2H9v3h2v6h3v-6h2.2l.8-3H14v-1.5A1.5 1.5 0 0 1 15.5 9H16l-1-1z"
+                  fill="currentColor"
+                />
+              </svg>
+            </a>
+            <a href="#" aria-label="Følg på X/Twitter">
+              <svg viewBox="0 0 24 24" class="ikon" aria-hidden="true">
+                <path
+                  d="M4 4l7.5 9.3L4.7 20H8l4.8-5.4L17.8 20H20l-7-8.6L19.3 4H16l-4.4 5-4-5H4z"
+                  fill="currentColor"
+                />
+              </svg>
+            </a>
+          </nav>
+        </section>
+      </div>
+
+      <div class="footer-meta">
+        © 2025 Besøk Norge — Alle rettigheter forbeholdt
+      </div>
+    </footer>
+  </body>
+</html>

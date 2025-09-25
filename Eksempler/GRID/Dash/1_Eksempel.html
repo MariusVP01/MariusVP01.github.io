@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="no">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Dashboard – CSS Grid</title>
+    <style>
+      :root {
+        --bg: #0f1420;
+        --panel: #151b2b;
+        --panel-2: #1a2133;
+        --accent: #6dd3fb;
+        --text: #e6eefc;
+        --muted: #8fa0c2;
+        --success: #4cd97b;
+        --warning: #ffcc66;
+        --radius: 14px;
+        --gap: 18px;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+      html,
+      body {
+        height: 100%;
+      }
+      body {
+        margin: 0;
+        font: 14px/1.45 system-ui, Segoe UI, Roboto, Helvetica, Arial,
+          sans-serif;
+        color: var(--text);
+        background: var(--bg);
+        display: grid;
+
+        /* HOVED-GRID (sidebar | content) */
+        grid-template-columns: 260px 1fr;
+        grid-template-rows: 64px 1fr;
+        grid-template-areas:
+          "sidebar topbar"
+          "sidebar main";
+      }
+
+      /* SIDEBAR */
+      .sidebar {
+        grid-area: sidebar;
+        background: linear-gradient(180deg, #12192a 0%, #0f1420 100%);
+        padding: 20px 16px;
+        border-right: 1px solid #202a40;
+        display: flex;
+        flex-direction: column;
+        gap: 22px;
+      }
+      .brand {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        font-weight: 700;
+        letter-spacing: 0.5px;
+      }
+      .brand .logo {
+        width: 36px;
+        height: 36px;
+        border-radius: 10px;
+        background: var(--accent);
+        display: grid;
+        place-items: center;
+        color: #0b1323;
+        font-weight: 900;
+      }
+      .profile {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        padding: 12px;
+        background: var(--panel-2);
+        border-radius: var(--radius);
+      }
+      .profile img {
+        width: 42px;
+        height: 42px;
+        border-radius: 50%;
+        object-fit: cover;
+      }
+      .menu {
+        display: flex;
+        flex-direction: column;
+        gap: 6px;
+      }
+      .menu h4 {
+        margin: 16px 8px 6px;
+        color: var(--muted);
+        font-size: 11px;
+        text-transform: uppercase;
+        letter-spacing: 0.12em;
+      }
+      .menu a {
+        text-decoration: none;
+        color: var(--text);
+        padding: 10px 12px;
+        border-radius: 10px;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+      .menu a:hover {
+        background: #1b2438;
+      }
+      .menu .dot {
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        background: #394664;
+      }
+
+      /* TOPBAR */
+      .topbar {
+        grid-area: topbar;
+        background: #0f1420;
+        border-bottom: 1px solid #202a40;
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        padding: 0 16px;
+      }
+      .search {
+        flex: 1;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        background: var(--panel);
+        padding: 10px 12px;
+        border-radius: 12px;
+        border: 1px solid #202a40;
+      }
+      .search input {
+        flex: 1;
+        background: transparent;
+        border: 0;
+        outline: 0;
+        color: var(--text);
+      }
+      .actions {
+        display: flex;
+        gap: 10px;
+      }
+      .btn {
+        padding: 10px 14px;
+        border-radius: 12px;
+        border: 1px solid #223052;
+        background: var(--panel-2);
+        color: var(--text);
+        cursor: pointer;
+      }
+      .btn.accent {
+        background: #2a3a5f;
+        border-color: #2a3a5f;
+      }
+      .btn.accent::before {
+        content: "⬇";
+        margin-right: 8px;
+      }
+
+      /* MAIN-INNHOLD – GRID */
+      .main {
+        grid-area: main;
+        padding: 20px;
+        display: grid;
+        gap: var(--gap);
+
+        /* områder: stats-rad + grafer + tre små */
+        grid-template-columns: repeat(12, 1fr);
+        grid-auto-rows: 160px;
+      }
+
+      /* STAT-KORT (fire like) */
+      .stat {
+        grid-column: span 3;
+        background: var(--panel);
+        border: 1px solid #202a40;
+        border-radius: var(--radius);
+        padding: 16px;
+        display: grid;
+        gap: 10px;
+      }
+      .stat .label {
+        color: var(--muted);
+        font-size: 12px;
+        text-transform: uppercase;
+        letter-spacing: 0.12em;
+      }
+      .stat .value {
+        font-size: 22px;
+        font-weight: 700;
+      }
+      .stat .trend {
+        font-size: 12px;
+        color: var(--success);
+      }
+
+      /* STOR LINJE-GRAF */
+      .card {
+        background: var(--panel);
+        border: 1px solid #202a40;
+        border-radius: var(--radius);
+        padding: 16px;
+      }
+      .chart-lg {
+        grid-column: span 8;
+        grid-row: span 2;
+      }
+      .list {
+        grid-column: span 4;
+        grid-row: span 2;
+      }
+
+      /* MINDRE WIDGETS NEDERST */
+      .pie {
+        grid-column: span 4;
+      }
+      .bars {
+        grid-column: span 4;
+      }
+      .map {
+        grid-column: span 4;
+      }
+
+      /* PSEUDO-INNHOLD (plassholdere) */
+      .placeholder {
+        height: 100%;
+        border-radius: 10px;
+        background: #121a2b;
+        display: grid;
+        place-items: center;
+        color: #87a0d0;
+        border: 1px dashed #2a3a50;
+        font-size: 13px;
+      }
+
+      /* LISTE (høyre kolonne) */
+      .list .item {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 10px 0;
+        border-bottom: 1px solid #202a40;
+      }
+      .badge {
+        background: #21314f;
+        border: 1px solid #2a3a5a;
+        color: #bfe6ff;
+        padding: 6px 10px;
+        border-radius: 10px;
+        font-size: 12px;
+      }
+
+      /* RESPONSIVE BREAKPOINTS */
+      @media (max-width: 1100px) {
+        body {
+          grid-template-columns: 80px 1fr;
+        }
+        .sidebar .brand span,
+        .profile,
+        .menu h4 {
+          display: none;
+        }
+        .menu a {
+          justify-content: center;
+        }
+        .menu a .label {
+          display: none;
+        }
+        .stat {
+          grid-column: span 6;
+        }
+        .chart-lg {
+          grid-column: span 12;
+        }
+        .list {
+          grid-column: span 12;
+        }
+        .pie,
+        .bars,
+        .map {
+          grid-column: span 12;
+        }
+      }
+      @media (max-width: 640px) {
+        .topbar {
+          padding: 10px;
+        }
+        .search {
+          display: none;
+        }
+        .actions {
+          margin-left: auto;
+        }
+        .stat {
+          grid-column: span 12;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+      <div class="brand">
+        <div class="logo">A</div>
+        <span>ADMINIS</span>
+      </div>
+
+      <div class="profile">
+        <img src="https://picsum.photos/80" alt="" />
+        <div>
+          <div style="font-weight: 700">Ed Roh</div>
+          <div style="color: var(--muted); font-size: 12px">VP Fancy Admin</div>
+        </div>
+      </div>
+
+      <nav class="menu">
+        <h4>Dashboard</h4>
+        <a href="#"
+          ><span class="dot"></span><span class="label">Oversikt</span></a
+        >
+        <h4>Data</h4>
+        <a href="#"
+          ><span class="dot"></span><span class="label">Manage Team</span></a
+        >
+        <a href="#"
+          ><span class="dot"></span><span class="label">Contacts</span></a
+        >
+        <a href="#"
+          ><span class="dot"></span><span class="label">Invoices</span></a
+        >
+        <h4>Sider</h4>
+        <a href="#"
+          ><span class="dot"></span><span class="label">Profil</span></a
+        >
+        <a href="#"
+          ><span class="dot"></span><span class="label">Kalender</span></a
+        >
+        <a href="#"><span class="dot"></span><span class="label">FAQ</span></a>
+        <h4>Charts</h4>
+        <a href="#"><span class="dot"></span><span class="label">Bar</span></a>
+        <a href="#"><span class="dot"></span><span class="label">Pie</span></a>
+        <a href="#"><span class="dot"></span><span class="label">Line</span></a>
+        <a href="#"><span class="dot"></span><span class="label">Geo</span></a>
+      </nav>
+    </aside>
+
+    <!-- TOPBAR -->
+    <header class="topbar">
+      <div class="search">🔎 <input placeholder="Søk…" /></div>
+      <div class="actions">
+        <button class="btn">⚙️</button>
+        <button class="btn">🔔</button>
+        <button class="btn accent">Last ned rapporter</button>
+      </div>
+    </header>
+
+    <!-- MAIN GRID -->
+    <main class="main">
+      <!-- STAT CARDS -->
+      <section class="stat">
+        <div class="label">Emails sent</div>
+        <div class="value">12,361</div>
+        <div class="trend">+2.4%</div>
+      </section>
+
+      <section class="stat">
+        <div class="label">Sales obtained</div>
+        <div class="value">431,225</div>
+        <div class="trend">+2.1%</div>
+      </section>
+
+      <section class="stat">
+        <div class="label">New clients</div>
+        <div class="value">32,441</div>
+        <div class="trend">+5.0%</div>
+      </section>
+
+      <section class="stat">
+        <div class="label">Traffic received</div>
+        <div class="value">1,325,134</div>
+        <div class="trend">+4.7%</div>
+      </section>
+
+      <!-- BIG LINE CHART (placeholder) -->
+      <section class="card chart-lg">
+        <div class="placeholder">Linje-graf (sett inn canvas/JS senere)</div>
+      </section>
+
+      <!-- RECENT TRANSACTIONS -->
+      <section class="card list">
+        <h3 style="margin: 0 0 8px">Recent Transactions</h3>
+        <div class="item">
+          <span>01e4dsa — johndoe</span><span class="badge">$43.90</span>
+        </div>
+        <div class="item">
+          <span>0315dsaa — jackdower</span><span class="badge">$133.45</span>
+        </div>
+        <div class="item">
+          <span>01e4dsa — aberdonny</span><span class="badge">$95.32</span>
+        </div>
+        <div class="item">
+          <span>510345zv — ana</span><span class="badge">$21.00</span>
+        </div>
+        <div class="item">
+          <span>09xq421 — li</span><span class="badge">$58.12</span>
+        </div>
+      </section>
+
+      <!-- SMALL WIDGETS -->
+      <section class="card pie">
+        <div class="placeholder">Pie chart</div>
+      </section>
+      <section class="card bars">
+        <div class="placeholder">Bar chart</div>
+      </section>
+      <section class="card map"><div class="placeholder">Geo map</div></section>
+    </main>
+  </body>
+</html>

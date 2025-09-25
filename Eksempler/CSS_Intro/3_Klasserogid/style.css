@@ -1,0 +1,41 @@
+/* 1. Element-selektor */
+h1 {
+  color: darkblue;
+  text-align: center;
+}
+
+p {
+  color: #333;
+  font-family: Arial, sans-serif;
+}
+
+/* 2. Klasse-selektor */
+.boks {
+  background: lightgreen;
+  border: 2px solid green;
+  padding: 10px;
+  margin: 10px 0;
+}
+
+/* 3. ID-selektor */
+#unik {
+  background: lightyellow;
+  border: 2px solid orange;
+  padding: 10px;
+  margin: 10px 0;
+}
+
+/* 4. Nøstet selektor (kun p inni .container) */
+.container p {
+  background: lightblue;
+  border: 2px dashed blue;
+  padding: 10px;
+}
+
+/* 5. Footer */
+footer {
+  background: #f0f0f0;
+  padding: 10px;
+  text-align: center;
+  color: gray;
+}

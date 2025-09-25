@@ -1,0 +1,133 @@
+:root {
+  --line: #cbd5e1; /* grid-linjer */
+  --bg: #f8fafc;
+  --fg: #0f172a;
+  --muted: #475569;
+  --card: #ffffff;
+  --ring: #3b82f6;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+}
+
+body {
+  font: 16px/1.55 system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  color: var(--fg);
+  background: var(--bg);
+  padding: clamp(16px, 5vw, 40px);
+}
+
+h1,
+h2 {
+  margin: 0 0 0.5rem;
+}
+section {
+  margin: 1.5rem 0 2rem;
+}
+
+p {
+  color: var(--muted);
+}
+
+/* ========== 1) RUTENETT-VISUALISERING ========== */
+.grid-demo {
+  /* grunnleggende grid */
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-auto-rows: 100px;
+  gap: 10px;
+
+  /* tegn grid-linjer i bakgrunnen med gradienter */
+  background-image: linear-gradient(to right, var(--line) 1px, transparent 1px),
+    linear-gradient(to bottom, var(--line) 1px, transparent 1px);
+  background-size: calc((100% - 3 * 10px) / 4) 100%,
+    /* kolonnebredde + gap-justering */ 100% 100px; /* radhøyde */
+  background-position: 0 0, 0 0;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 10px;
+}
+
+.cell {
+  background: var(--card);
+  display: grid;
+  place-items: center;
+  border: 1px dashed var(--line);
+  border-radius: 10px;
+  font-weight: 600;
+  color: var(--muted);
+}
+
+/* ========== 2) GALLERI MED ULIKE BILDEFORHOLD ========== */
+.gallery {
+  display: grid;
+  gap: 12px;
+  /* responsiv kolonneoppsett – fliser blir minst 180px brede */
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+}
+
+/* hver flis er en "kort" med kant og avrunding */
+.tile {
+  background: var(--card);
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  overflow: clip;
+  display: grid;
+  grid-template-rows: auto auto; /* bilde + bildetekst */
+}
+
+/* BILDE-STIL: fyll ramma pent uansett kildeforhold */
+.tile > img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover; /* cropper pent til valgt aspect-ratio */
+  inline-size: 100%;
+  block-size: 100%;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+/* Bildetekst */
+.tile > figcaption {
+  padding: 8px 10px;
+  font-size: 0.9rem;
+  color: var(--muted);
+}
+
+/* FORSKJELLIGE FLIS-FORHOLD (uten å måtte redigere bildene) */
+.ratio-1x1 {
+  aspect-ratio: 1 / 1;
+}
+.ratio-16x9 {
+  aspect-ratio: 16 / 9;
+}
+.ratio-4x3 {
+  aspect-ratio: 4 / 3;
+}
+.ratio-3x4 {
+  aspect-ratio: 3 / 4;
+} /* portrett */
+
+.note {
+  margin-top: 0.5rem;
+  font-size: 0.95rem;
+  color: var(--muted);
+}
+
+/* Små skjermer: litt større “klikkflater” */
+@media (max-width: 480px) {
+  .grid-demo {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .grid-demo {
+    background-size: calc((100% - 2 * 10px) / 3) 100%, 100% 100px;
+  }
+}

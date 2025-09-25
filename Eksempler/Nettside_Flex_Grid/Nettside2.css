@@ -1,0 +1,256 @@
+body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: match-parent;
+  border: solid 2px #e2e8f0; /* var: black */
+  padding: 10px;
+  padding-left: 5rem;
+  padding-right: 5rem;
+  gap: 20px;
+}
+
+.meny {
+  display: flex;
+  gap: 20px;
+}
+
+.meny a {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  text-decoration: none;
+  color: #0f172a; /* var: black */
+  transition: transform 0.2s ease; /* se under */
+}
+
+.meny a:hover {
+  transform: scale(1.4);
+  outline: 3px solid #10b981; /* var: #34d399 */
+  outline-offset: 2px; /* litt avstand fra elementet */
+  border-radius: 6px; /* valgfritt: gjør rammen mykere */
+}
+
+.ikon {
+  width: 22px;
+  height: 22px;
+  display: block;
+}
+
+.meny a h6 {
+  margin: 4px;
+  font-size: 16px;
+}
+
+.Video {
+  position: relative; /* slik at overlay (boksene) kan posisjoneres oppå */
+  width: 100%;
+  height: 100vh; /* fyller hele høyden av skjermen */
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(3, 1fr); /* 6 like rader i containerens høyde */
+  gap: 12px;
+  padding: 0px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+
+  /* gjør at gridens høyde skalerer fra bredden (matcher video) */
+  /* aspect-ratio: 16 / 9; /* velg 16/9, 4/3, 21/9, … */
+  width: match-parent;
+  /* max-height: 100vh; /* ikke høyere enn skjermen */
+}
+
+.bg-video {
+  grid-column: 1 / -1;
+  grid-row: 1 / -1;
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* fyll hele stage uten å forvrenge */
+  filter: brightness(0.6);
+  z-index: 0; /* bak bokser */
+  pointer-events: none;
+}
+
+.bokser {
+  background: rgba(3, 14, 30, 0.45); /* var: rgba(255,255,255,0.05) */
+  border: 2px solid rgba(255, 255, 255, 0.25); /* var: black */
+  border-radius: 10px;
+  padding: 22px;
+  z-index: 1; /* over videoen */
+  backdrop-filter: blur(2px);
+  text-decoration: none;
+  color: white;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.boks1 {
+  grid-column: 2 / 3;
+  grid-row: 2 / 3;
+}
+
+.artikler {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(300px, 600px));
+  grid-auto-rows: 600px;
+  gap: 20px;
+}
+
+.innpakning {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  background-color: #eef2f7; /* var: lightpink */
+}
+.artikkel {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow: hidden;
+  border: 2px solid #e2e8f0; /* var: black */
+  border-radius: 10px;
+  margin: 10px;
+  text-decoration: none;
+  color: #0f172a; /* var: black */
+  transition: tranform 0.2s ease, box-shadow 0.2s ease, background-color 0.2s; /* jevn overgang ved hover */
+}
+
+.artikkel img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* fyller hele boksen, klipper evt. overskudd */
+  border-radius: 8px; /* matcher evt. kantene på boksen */
+  display: block; /* fjerner ekstra mellomrom under bildet */
+}
+
+.artikkel:hover {
+  transform: scale(1.2);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* legger til skygge ved hover */
+  border: #2563eb 3px solid; /* var: red */
+  background-color: #ffffff; /* var: gray */
+}
+
+.innpakning2 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  background-color: #eef2f7; /* var: lightblue */
+}
+
+.liste {
+  flex: 1 1 0;
+  max-width: 33.333%;
+  height: match-parent;
+  border: 2px solid #e2e8f0; /* var: black */
+  border-radius: 10px;
+  height: 600px;
+  font-size: 18px;
+  padding: 10px;
+}
+.lister {
+  padding: 20px;
+  padding-top: 0px;
+  list-style-type: disc;
+  margin-left: 20px;
+  display: flex;
+  gap: 5px;
+  font-style: italic;
+  font-size: 20px;
+  flex-direction: column;
+}
+.kart {
+  flex: 2 1 0;
+  max-width: 66.666%;
+  border: 2px solid #e2e8f0; /* var: black */
+  border-radius: 10px;
+  height: 600px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+  font-size: 20px;
+}
+.kart img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* fyller hele boksen, klipper evt. overskudd */
+  border-radius: 8px; /* matcher evt. kantene på boksen */
+  display: block; /* fjerner ekstra mellomrom under bildet */
+}
+
+.footer {
+  background: #0f172a; /* mørk blågrå */
+  color: #e5e7eb; /* lys tekst */
+  margin-top: 0rem;
+}
+
+.footer a {
+  color: inherit;
+  text-decoration: none;
+}
+.footer a:hover,
+.footer a:focus-visible {
+  text-decoration: underline;
+  outline: none;
+}
+
+.footer-wrap {
+  display: flex;
+  gap: 24px;
+  justify-content: space-around;
+  padding: 24px 20px;
+  max-width: 1100px;
+  margin: 0 auto;
+  border-top: 2px solid rgba(255, 255, 255, 0.15);
+}
+
+.footer h3 {
+  font-size: 1rem;
+  margin: 0 0 0.5rem 0;
+}
+
+.footer ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.footer li {
+  margin: 0.4rem 0;
+}
+
+.social {
+  display: flex;
+  gap: 12px;
+  margin-top: 0.25rem;
+}
+.ikon {
+  width: 24px;
+  height: 24px;
+  display: block;
+  opacity: 0.9;
+  transition: transform 0.15s ease, opacity 0.15s ease;
+}
+.social a:hover .ikon,
+.social a:focus-visible .ikon {
+  transform: scale(1.1);
+  opacity: 1;
+}
+
+.footer-meta {
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  text-align: center;
+  font-size: 0.9rem;
+  padding: 12px 16px 16px;
+  color: #cbd5e1;
+}

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="no">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Grid layers</title>
+    <style>
+      .container {
+        display: grid;
+        grid-template-columns: 1fr; /* bare én kolonne */
+        grid-template-rows: minmax(100vh, 1fr); /* én rad */
+        border: 2px solid black;
+      }
+
+      /* Alle items legges i samme gridcelle */
+
+      .bakgrunn {
+        background: lightblue;
+        grid-column: 1 / 2; /* kolonne 1 */
+        grid-row: 1 / 2; /* rad 1 */
+        z-index: -1; /* bak alt annet */
+      }
+
+      .overlay {
+        background-color: none;
+        text-align: center;
+        background: rgba(255, 0, 0, 0.05); /* halvtransparent rød */
+        grid-column: 1 / 2; /* kolonne 1 */
+        grid-row: 1 / 2; /* rad 1 */
+        z-index: 1;
+      }
+
+      .tekst {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.5rem;
+        color: black;
+        background: rgba((255, 255, 255, 0.05)); /* halvtransparent hvit */
+        grid-column: 1 / 2; /* kolonne 1 */
+        grid-row: 1 / 2; /* rad 1 */
+        z-index: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="bakgrunn">Bakgrunn</div>
+      <div class="overlay">Overlay</div>
+      <div class="tekst">Tekst oppå alt</div>
+    </div>
+  </body>
+</html>

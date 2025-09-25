@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .bokser {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-rows: repeat(3, 1fr);
+        gap: 50px 50px;
+        padding: 10px;
+        background-color: blue;
+      }
+
+      .bokser div {
+        background-color: lightgray;
+      }
+
+      .boks1 {
+        grid-column: span 2; /* Tar opp to kolonner */
+        grid-row: span 2; /* Tar opp to srader */
+        height: 200px;
+        background-color: lightcoral;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="bokser">
+      <div class="boks1"></div>
+      <div class="boks2"></div>
+      <div class="boks3"></div>
+      <div class="boks4"></div>
+      <div class="boks5"></div>
+      <div class="boks6"></div>
+    </div>
+  </body>
+</html>

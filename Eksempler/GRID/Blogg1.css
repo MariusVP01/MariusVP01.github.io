@@ -1,0 +1,50 @@
+body {
+  font-family: sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+.header {
+  background: #ddd;
+  padding: 1rem;
+  text-align: center;
+}
+
+/* Hele main er grid */
+.grid {
+  display: grid;
+  /*grid-template-columns: 1fr 1fr 1fr 1fr; /* fire like brede kolonner */
+  grid-template-columns: repeat(4, 1fr); /* 4 kolonner */
+  grid-template-rows: repeat(4, 150px);
+  /* så mange rader som trengs */
+  /*rid-auto-rows: 150px; /* høyde på en "rad-enhet" */
+  column-gap: 10px;
+  row-gap: 10px;
+}
+
+/* Alle artikler har bakgrunn og ramme */
+.item {
+  background: #f0f0f0;
+  border: 2px solid #000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: bold;
+}
+
+/* Ulike størrelser */
+.small {
+  grid-column: span 1;
+  grid-row: span 1;
+}
+
+.medium {
+  grid-column: span 2;
+  grid-row: span 1;
+  display: flex;
+}
+
+.large {
+  grid-column: span 2;
+  grid-row: span 2;
+}

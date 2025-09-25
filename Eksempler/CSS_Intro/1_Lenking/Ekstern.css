@@ -1,0 +1,15 @@
+/* ekstern.css, huske riktige filstier og navn*/
+
+body {
+  background-color: lightblue; /* Setter bakgrunnsfargen til lys blå */
+}
+
+h1 {
+  color: navy; /* Setter fargen på overskrifter til marineblå */
+  margin-left: 20px; /* Legger til venstremargin på 20 piksler */
+}
+
+p {
+  font-family: Arial, sans-serif; /* Setter skrifttypen for avsnitt til Arial */
+  font-size: 14px; /* Setter skriftstørrelsen for avsnitt til 14 piksler */
+}

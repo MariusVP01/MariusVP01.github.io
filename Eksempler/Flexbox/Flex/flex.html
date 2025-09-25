@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="no">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Flex Layout</title>
+    <style>
+      body {
+        margin: 0;
+        font-family: Arial, sans-serif;
+      }
+      header,
+      footer {
+        background: lightblue;
+        padding: 20px;
+        text-align: center;
+      }
+      .content {
+        display: flex;
+        min-height: 60vh; /* fyller resten av siden */
+      }
+      nav {
+        background: lightgray;
+        width: 200px;
+        padding: 20px;
+      }
+      main {
+        flex: 1; /* tar opp resten av plassen */
+        background: white;
+        padding: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <header>HEADER (Flex)</header>
+    <div class="content">
+      <nav>NAV</nav>
+      <main>MAIN</main>
+    </div>
+    <footer>FOOTER</footer>
+  </body>
+</html>

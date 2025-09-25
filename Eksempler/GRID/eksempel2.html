@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="no">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Grid-nett + Galleri</title>
+    <link rel="stylesheet" href="eksempel2.css" />
+  </head>
+  <body>
+    <h1>CSS Grid: rutenett og galleri</h1>
+
+    <!-- 1) VIS GRID-NETTET TYDELIG -->
+    <section>
+      <h2>1) Rutenett-visualisering</h2>
+      <p>
+        Her ser du tydelige grid-linjer (kun CSS), og celler fylt med
+        demo-ruter.
+      </p>
+      <div class="grid-demo">
+        <div class="cell">1</div>
+        <div class="cell">2</div>
+        <div class="cell">3</div>
+        <div class="cell">4</div>
+        <div class="cell">5</div>
+        <div class="cell">6</div>
+        <div class="cell">7</div>
+        <div class="cell">8</div>
+      </div>
+    </section>
+
+    <!-- 2) RESPONSIVT GALLERI ULIKE BILDESTØRRELSER -->
+    <section>
+      <h2>2) Galleri med ulike bildeforhold</h2>
+      <p>
+        Bildene beskjæres pent i ulike fliser ved hjelp av
+        <code>aspect-ratio</code> og <code>object-fit: cover</code>. Grid er
+        responsivt med <code>minmax()</code> og <code>auto-fit</code>.
+      </p>
+
+      <div class="gallery">
+        <!-- kvadrat -->
+        <figure class="tile ratio-1x1">
+          <img src="https://picsum.photos/id/1011/900/900" alt="Kvadrat" />
+          <figcaption>Kvadrat</figcaption>
+        </figure>
+
+        <!-- 16:9 -->
+        <figure class="tile ratio-16x9">
+          <img src="https://picsum.photos/id/1015/1600/900" alt="Wide 16:9" />
+          <figcaption>Wide 16:9</figcaption>
+        </figure>
+
+        <!-- 3:4 (portrett) -->
+        <figure class="tile ratio-3x4">
+          <img
+            src="https://picsum.photos/id/1027/900/1200"
+            alt="Portrett 3:4"
+          />
+          <figcaption>Portrett 3:4</figcaption>
+        </figure>
+
+        <!-- 4:3 -->
+        <figure class="tile ratio-4x3">
+          <img
+            src="https://picsum.photos/id/1035/1200/900"
+            alt="Landscape 4:3"
+          />
+          <figcaption>Landscape 4:3</figcaption>
+        </figure>
+
+        <!-- litt flere -->
+        <figure class="tile ratio-1x1">
+          <img src="https://picsum.photos/id/1041/900/900" alt="Kvadrat 2" />
+          <figcaption>Kvadrat 2</figcaption>
+        </figure>
+
+        <figure class="tile ratio-16x9">
+          <img src="https://picsum.photos/id/1050/1600/900" alt="Wide 2" />
+          <figcaption>Wide 2</figcaption>
+        </figure>
+
+        <figure class="tile ratio-3x4">
+          <img src="https://picsum.photos/id/1062/900/1200" alt="Portrett 2" />
+          <figcaption>Portrett 2</figcaption>
+        </figure>
+
+        <figure class="tile ratio-4x3">
+          <img src="https://picsum.photos/id/1074/1200/900" alt="Landscape 2" />
+          <figcaption>Landscape 2</figcaption>
+        </figure>
+      </div>
+
+      <p class="note">
+        Merk: Dette er **ikke masonry** (vannfall). Grid lager rader. Skal du ha
+        ekte «masonry», trengs enten <code>column-count</code>-triks (ikke
+        Grid), JS-hjelp, eller det eksperimentelle
+        <code>grid-template-rows: masonry;</code> (begrenset støtte).
+      </p>
+    </section>
+  </body>
+</html>

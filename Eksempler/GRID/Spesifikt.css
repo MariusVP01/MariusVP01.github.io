@@ -1,0 +1,76 @@
+body {
+  margin: 0;
+  font-family: sans-serif;
+  display: grid;
+  /* 1 kolonne som fyller hele bredden */
+  grid-template-columns: 1fr;
+
+  /* 3 rader: header (auto-høyde), main (fyller alt), footer (auto-høyde) */
+  grid-template-rows: auto 1fr auto;
+
+  /*justify-content: center;
+  align-items: center;*/
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(4, 100px); /* 4 kolonner à 100px */
+  grid-template-rows: repeat(3, 100px); /* 3 rader à 100px */
+  gap: 10px;
+  background: #eee;
+  padding: 10px;
+}
+
+.box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  color: white;
+}
+
+/* Farger */
+.a {
+  background: #2563eb;
+}
+.b {
+  background: #16a34a;
+}
+.c {
+  background: #ca8a04;
+}
+.d {
+  background: #dc2626;
+}
+.e {
+  background: rgba(99, 102, 241, 0.8);
+}
+
+/* Plassering på bestemte grider */
+.a {
+  grid-column: 1 / 3; /* starter i kolonne 1 og dekker til 2 */
+  grid-row: 1 / 2; /* rad 1 */
+}
+.b {
+  grid-column: 3 / 5; /* kolonne 3-4 */
+  grid-row: 1 / 3; /* rad 1-2 */
+}
+.c {
+  grid-column: 1 / 2; /* kolonne 1 */
+  grid-row: 2 / 4; /* rad 2-3 */
+  z-index: 4; /* gjør at E vises oppå */
+}
+
+.d {
+  grid-column: 2 / 4; /* kolonne 2-3 */
+  grid-row: 3 / 4; /* rad 3 */
+}
+.e {
+  grid-column: 1 / 4; /* overlapp – ligger delvis over C */
+  grid-row: 2 / 3;
+  z-index: 2; /* gjør at E vises oppå */
+}

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="no">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Selektorer i CSS</title>
+    <link rel="stylesheet" href="style.css" />
+    <!-- Linker til en ekstern CSS-fil, husk riktig filsti -->
+  </head>
+  <body>
+    <!-- 
+    Selektorer i CSS
+
+    Det finnes flere måter å finne frem til hvilke elementer vi ønsker å påvirke:
+    1. Elementnavn (f.eks. p, h1, div) → treffer ALLE slike elementer
+    2. Klasse (.klasse) → treffer alle elementer med denne klassen
+    3. ID (#id) → treffer det ENE elementet med denne ID-en
+    4. Kombinasjoner og nøsting → f.eks. .container p treffer bare <p> inni container
+    5. Pseudo-klasser → f.eks. a:hover, p:first-child (kommer senere)
+
+    Viktig: ID skal være unik på en side, klasse kan gjenbrukes mange ganger.
+    -->
+
+    <!-- Eksempler -->
+    <h1>Dette er en overskrift (treffes via elementnavn h1)</h1>
+
+    <p>Dette er et avsnitt (treffes via elementnavn p)</p>
+
+    <div class="boks">Jeg har klassen <code>.boks</code></div>
+
+    <div id="unik">Jeg har en ID <code>#unik</code></div>
+
+    <div class="container">
+      <p>
+        Jeg er et <code>&lt;p&gt;</code> inni en container (nøstet selektor)
+      </p>
+    </div>
+
+    <footer>
+      <p>Footer med egen styling</p>
+    </footer>
+  </body>
+</html>

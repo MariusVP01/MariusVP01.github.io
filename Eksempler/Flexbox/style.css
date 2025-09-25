@@ -1,0 +1,87 @@
+body {
+  display: flex;
+  flex-direction: column;
+}
+
+header {
+  position: relative;
+  background-color: lightgrey;
+  display: flex;
+
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  padding-left: 50px;
+  border: solid black 2px;
+}
+
+.meny {
+  display: flex;
+  justify-content: space-around;
+  gap: 30px;
+  flex-direction: row;
+}
+.meny a {
+  text-align: center;
+  text-decoration: none;
+  color: black;
+
+  font-size: 18px;
+  font-weight: bold;
+  padding: 15px 25px; /* gjør klikkflaten større */
+  border: none; /* fjernet kantlinjen som gjorde det “tungt” */
+  border-radius: 8px; /* avrundede hjørner gir mykere look */
+
+  background-color: white; /* lys bakgrunn for kontrast */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* gir litt dybde */
+
+  transition: all 0.3s ease; /* smooth hover-effekt */
+}
+
+.meny a:hover {
+  background-color: lightblue; /* endrer farge når du holder musen over */
+  transform: translateY(-2px); /* liten “løft” animasjon */
+}
+
+main {
+  display: flex;
+  position: relative;
+  overflow: hidden; /* skjuler det som stikker utenfor */
+  border: 2px solid black;
+  width: auto;
+  align-items: center;
+  justify-content: center;
+}
+
+main img {
+  width: fit-content;
+  height: auto;
+  object-fit: cover;
+}
+
+.Oppo {
+  /* eller .Oppo – men match HTML */
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: rgba(0, 0, 0, 0.6);
+  color: white;
+  padding: 20px 30px;
+  border-radius: 5px;
+  font-size: 24px;
+  text-align: center;
+  z-index: 1;
+}
+
+.galleri {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.galleri img {
+  text-align: center;
+  width: 720px;
+  height: auto;
+}

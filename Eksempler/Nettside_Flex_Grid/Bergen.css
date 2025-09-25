@@ -1,0 +1,160 @@
+/* Holder main smalt, lesbart og responsivt */
+.bergen-main {
+  max-width: 1100px;
+  margin: 0 auto 64px;
+  padding: 16px;
+}
+
+/* Hero-banner med bilde + overlegg */
+.hero-bergen {
+  position: relative;
+  border-radius: 16px;
+  overflow: hidden;
+  border: 1px solid #1f2937; /* matcher mørk kant i temaet */
+  background: #0f172a; /* mørk flate under */
+  margin-top: 16px;
+}
+
+.hero-bergen img {
+  width: 100%;
+  height: 360px;
+  object-fit: cover;
+  display: block;
+  filter: saturate(1.05);
+}
+
+.hero-bergen .hero-overlay {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  text-align: center;
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0.25), rgba(0, 0, 0, 0.55));
+  padding: 24px;
+  color: #ffffff;
+}
+
+.hero-bergen h1 {
+  font-size: clamp(1.8rem, 4vw, 3rem);
+  margin: 0 0 8px 0;
+}
+.hero-bergen p {
+  margin: 0;
+  color: #e5e7eb;
+}
+
+/* Intro-seksjon */
+.intro {
+  margin-top: 24px;
+  background: #0f172a;
+  border: 1px solid #1f2937;
+  border-radius: 12px;
+  padding: 20px;
+  color: #e5e7eb;
+}
+.intro h2 {
+  margin: 0 0 8px;
+}
+
+/* Fakta-rad */
+.facts {
+  margin-top: 16px;
+}
+.facts-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 12px;
+}
+.fact {
+  background: #0f172a;
+  border: 1px solid #1f2937;
+  border-radius: 12px;
+  padding: 16px;
+  color: #e5e7eb;
+}
+.fact h3 {
+  margin: 0 0 6px;
+  color: #e6edf7;
+}
+
+/* Kort for opplevelser */
+.cards {
+  margin-top: 24px;
+}
+.cards h2 {
+  margin: 0 0 12px;
+}
+.card-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+}
+.card {
+  display: grid;
+  grid-template-rows: 180px auto;
+  background: #0f172a;
+  border: 1px solid #1f2937;
+  border-radius: 12px;
+  color: #e5e7eb;
+  text-decoration: none;
+  overflow: hidden;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+}
+.card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.card-body {
+  padding: 14px 16px;
+}
+.card h3 {
+  margin: 0 0 6px;
+}
+.card p {
+  margin: 0;
+  color: #cbd5e1;
+}
+.card:hover,
+.card:focus-visible {
+  transform: translateY(-2px);
+  border-color: #60a5fa; /* blå aksent */
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.35);
+  outline: none;
+}
+
+/* Praktisk info stripe */
+.info-strip {
+  margin-top: 24px;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 12px;
+}
+.info-item {
+  background: #0f172a;
+  border: 1px solid #1f2937;
+  border-radius: 12px;
+  padding: 16px;
+}
+.info-item h4 {
+  margin: 0 0 6px;
+  color: #e6edf7;
+}
+.info-item p {
+  margin: 0;
+  color: #cbd5e1;
+}
+
+/* Responsiv utvidelse */
+@media (min-width: 720px) {
+  .facts-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .card-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .hero-bergen img {
+    height: 420px;
+  }
+}

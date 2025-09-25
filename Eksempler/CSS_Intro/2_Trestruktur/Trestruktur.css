@@ -1,0 +1,50 @@
+/* Grunnoppsett: dette arves av alle elementer hvis ikke overstyrt */
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  color: #333; /* arves */
+  margin: 16px;
+}
+
+/* En enkel boks-stil (margin/padding/border arves IKKE) */
+.boks {
+  border: 2px solid #999; /* må settes per boks */
+  padding: 12px; /* må settes per boks */
+  margin: 12px 0; /* må settes per boks */
+  background: #f7f7f7;
+}
+
+/* Forelder setter en tydelig farge som arves av barn */
+.forelder {
+  color: #0b5394; /* blå tekst -> arves av barn og barnebarn */
+  background: #e7f1fb;
+}
+
+/* Barn får egen bakgrunn, men arver fortsatt tekstfargen fra forelder */
+.barn {
+  background: #eaf7ea; /* grønnlig bakgrunn */
+}
+
+/* Barnebarn overstyrer tekstfargen lokalt */
+.barnebarn {
+  color: #9c2c2c; /* rødbrun tekst – overstyrer arvet blå */
+  background: #fff2df;
+}
+
+/* En “søster”-boks som ikke ligger inni forelder-boksen */
+.soester {
+  background: #eee;
+  border-color: #bbb;
+}
+
+/* Void-element-demo: bare litt ramme rundt bildet */
+.lite-bilde {
+  border: 2px solid #ccc;
+  display: inline-block;
+}
+
+/* Footer: liten og dempet */
+footer {
+  margin-top: 24px;
+  color: #666;
+  font-size: 0.9rem;
+}

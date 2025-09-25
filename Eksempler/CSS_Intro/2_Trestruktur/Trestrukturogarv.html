@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="Trestruktur.css" />
+  </head>
+  <body>
+    <!-- 
+    Notater om HTML og CSS
+
+    Arv og nøsting:
+    - Hvert element kan sees på som en boks, og bokser kan ligge inni andre bokser (foreldre og barn).
+    - Mange CSS-egenskaper arves fra foreldre (f.eks. font, color), men layout-egenskaper som margin, padding og border arves ikke.
+
+    Spesifisitet (rekkefølge på hva som gjelder):
+    1. Nettleser-standarder (default stil)
+    2. Eksternt stilark (linket CSS-fil)
+    3. Interne regler (<style> i <head>)
+    4. Inline CSS (style="" direkte på element)
+    5. !important overstyrer alt (bruk med forsiktighet)
+
+    Nærmeste regel gjelder alltid først: 
+    - En regel på et barn-element kan overstyre arven fra forelderen.
+
+    Void elements (kan ikke ha barn/innhold):
+    - Eksempler: <img>, <input>, <br>, <hr>, <meta>, <link>, <source>, <area>, <col>, <embed>, <track>, <wbr>.
+    - Disse taggene er selv-lukkende og kan ikke ha tekst eller andre elementer inni seg.
+    -->
+
+    <h1>Arv og bokser (enkelt eksempel)</h1>
+
+    <div class="boks forelder">
+      Forelder (div.forelder)
+      <p>Setter tekstfarge og font som barna arver.</p>
+
+      <div class="boks barn">
+        Barn (div.barn)
+        <p>Arver tekstfargen fra forelder.</p>
+
+        <div class="boks barnebarn">
+          Barnebarn (div.barnebarn)
+          <p>Denne boksen overstyrer fargen lokalt (nærmeste regel vinner).</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="boks soester">
+      Søster-boks (div.soester)
+      <p>Påvirkes ikke av forelder-boksen over, har egne regler.</p>
+    </div>
+
+    <h2>Void-elementer (kan ikke ha barn)</h2>
+    <p>
+      Under er et bilde (<code>&lt;img&gt;</code>) og et linjeskift
+      (<code>&lt;br&gt;</code>). De kan ikke inneholde andre elementer.
+    </p>
+
+    <!-- Lite bilde fra plassholdere, valgfritt -->
+    <img
+      class="lite-bilde"
+      src="https://via.placeholder.com/80"
+      alt="Plassholder"
+      width="80"
+      height="80"
+    />
+    <br />
+    Tekst etter linjeskift.
+
+    <footer>
+      <p>Liten footer-tekst.</p>
+    </footer>
+  </body>
+</html>
