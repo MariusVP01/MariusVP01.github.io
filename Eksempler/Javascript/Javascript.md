@@ -452,6 +452,20 @@ De vanligste i JavaScript er `for`, `while` og `do-while`.
 
 ### 🔹 For-løkke
 
+For løkker er bygd opp som dette:
+
+for (`start`; `betingelse`; `oppdatering`) {
+  Kode som skjer
+}
+
+```js
+  for(indikator; test/betingelse;  endring; ){  
+  // dette er det som skjer; 
+  // Denne gjentas frem til betingelsen ikke lengre er oppfylt
+  }
+``` 
+
+
 ```js
 for (let i = 0; i < 5; i++) {
   console.log("Teller: " + i);
@@ -540,6 +554,15 @@ for (const student of studenter) {
 
 ### 🔹 While-løkke
 
+Brukes til å gjenta kode basert på en betingelse
+Syntaks. While (`betingelse`) { Kode som blir utført}
+
+```js
+while (betingelse) {
+  //kode som gjentas frem til betingelsen ikke lengre er TRUE
+}
+``` 
+
 ```js
 let i = 0;
 while (i < 5) {
@@ -553,6 +576,14 @@ while (i < 5) {
 ---
 
 ### 🔹 Do-while-løkke
+
+Brukes innemellom istedet for while løkker. Sørger for at hendelse blir utført minst en gang
+
+```js 
+do {
+  //Kode som gjøres og gjentas så lenge betingelsen er sann
+} while (betingelse)
+```
 
 ```js
 let j = 0;
