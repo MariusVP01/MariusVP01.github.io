@@ -141,6 +141,7 @@ for (const lenke of lenker) {
 - `innerText` = endrer tekstinnhold
 - `style` = endrer CSS direkte
 - `addEventListener` = lytter etter hendelser som klikk
+- Lenke: https://www.w3schools.com/js/js_htmldom_document.asp
 
 ---
 
