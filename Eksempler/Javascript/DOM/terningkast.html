@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="no">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Terningspill 🎲</title>
+    <style>
+      body {
+        font-family: sans-serif;
+        text-align: center;
+        padding: 40px;
+      }
+
+      #terning {
+        font-size: 100px;
+        margin: 20px;
+      }
+
+      #kastTeller {
+        font-size: 20px;
+        color: gray;
+      }
+
+      button {
+        font-size: 20px;
+        padding: 10px 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Terningspill 🎲</h1>
+    <div id="terning">⚀</div>
+    <button id="kastKnapp">Kast terningen</button>
+    <p id="kastTeller">Antall kast: 0</p>
+
+    <script>
+      // Hente elementer
+      const knapp = document.getElementById("kastKnapp");
+      const terning = document.getElementById("terning");
+      const teller = document.getElementById("kastTeller");
+
+      let antallKast = 0;
+
+      // Funksjon for å kaste terning
+      function kastTerning() {
+        const tall = Math.floor(Math.random() * 6) + 1; // tilfeldig tall 1–6
+
+        // Emojier for terningens sider
+        const terningSymboler = ["⚀", "⚁", "⚂", "⚃", "⚄", "⚅"];
+        terning.innerText = terningSymboler[tall - 1];
+
+        // Oppdater antall kast
+        antallKast++;
+        teller.innerText = "Antall kast: " + antallKast;
+      }
+
+      // Lytt etter klikk
+      knapp.addEventListener("click", kastTerning);
+    </script>
+  </body>
+</html>

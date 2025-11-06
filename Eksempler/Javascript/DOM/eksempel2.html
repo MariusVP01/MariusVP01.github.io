@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="no">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Dynamisk innhold</title>
+    <style>
+      body {
+        font-family: sans-serif;
+        text-align: center;
+        padding: 40px;
+      }
+
+      input {
+        padding: 8px;
+        font-size: 16px;
+      }
+
+      button {
+        padding: 8px 15px;
+        font-size: 16px;
+        margin-left: 5px;
+      }
+
+      p {
+        font-size: 20px;
+        margin-top: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Dynamisk tekstoppdatering</h1>
+
+    <!-- Input-felt og knapp -->
+    <input type="text" id="brukerInput" placeholder="Skriv noe her..." />
+    <button id="visKnapp">Vis tekst</button>
+
+    <!-- Avsnitt der teksten vises -->
+    <p id="resultat"></p>
+
+    <script>
+      // Hent elementene fra DOM
+      const input = document.getElementById("brukerInput");
+      const knapp = document.getElementById("visKnapp");
+      const resultat = document.getElementById("resultat");
+
+      // Når brukeren trykker på knappen
+      knapp.addEventListener("click", () => {
+        // Hent verdien fra input-feltet
+        const tekst = input.value;
+
+        // Sjekk at det ikke er tomt
+        if (tekst.trim() === "") {
+          resultat.innerText = "⚠️ Du må skrive noe først!";
+        } else {
+          // Sett teksten inn i <p>-elementet
+          resultat.innerText = "Du skrev: " + tekst;
+
+          // BONUS: Tøm input-feltet etterpå
+          input.value = "";
+        }
+      });
+    </script>
+  </body>
+</html>

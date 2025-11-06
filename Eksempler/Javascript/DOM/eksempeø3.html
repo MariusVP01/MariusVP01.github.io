@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="no">
+  <head>
+    <meta charset="UTF-8" />
+    <title>DOM-valg: Element vs NodeList vs HTMLCollection</title>
+    <style>
+      body {
+        font-family: sans-serif;
+        padding: 30px;
+        text-align: center;
+      }
+
+      .boks {
+        width: 100px;
+        height: 100px;
+        display: inline-block;
+        margin: 10px;
+        background-color: lightgray;
+        border-radius: 8px;
+        line-height: 100px;
+        font-weight: bold;
+        font-size: 20px;
+      }
+
+      button {
+        margin-top: 20px;
+        padding: 10px 20px;
+        font-size: 16px;
+      }
+
+      #log {
+        margin-top: 30px;
+        text-align: left;
+        font-family: monospace;
+        background-color: #f3f3f3;
+        padding: 10px;
+        border-radius: 5px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Element vs NodeList vs HTMLCollection</h1>
+
+    <div id="enkel">A</div>
+
+    <div class="boks">1</div>
+    <div class="boks">2</div>
+    <div class="boks">3</div>
+
+    <button id="sjekk">Sjekk DOM-valg</button>
+
+    <pre id="log"></pre>
+    <br />
+    <p>En</p>
+    <p>To</p>
+    <p>Tre</p>
+
+    <script>
+      const logg = document.getElementById("log");
+
+      document.getElementById("sjekk").addEventListener("click", () => {
+        logg.innerText = ""; // tøm tidligere tekst
+
+        // 1️⃣ Ett enkelt element (Element)
+        const enkel = document.getElementById("enkel");
+        console.log(enkel);
+        logg.innerText += "getElementById() → " + enkel + "\\n";
+        logg.innerText += "Type: " + enkel.constructor.name + "\\n\\n";
+
+        // 2️⃣ HTMLCollection (live liste)
+        const bokser1 = document.getElementsByClassName("boks");
+        console.log(bokser1);
+        logg.innerText +=
+          "getElementsByClassName() → " + bokser1.length + " elementer\\n";
+        logg.innerText += "Type: " + bokser1.constructor.name + "\\n";
+        logg.innerText +=
+          "Kan jeg bruke forEach? " +
+          (bokser1.forEach ? "Ja" : "Nei") +
+          "\\n\\n";
+
+        // 3️⃣ NodeList (ikke-live liste)
+        const bokser2 = document.querySelectorAll(".boks");
+        console.log(bokser2);
+        logg.innerText +=
+          "querySelectorAll() → " + bokser2.length + " elementer\\n";
+        logg.innerText += "Type: " + bokser2.constructor.name + "\\n";
+        logg.innerText +=
+          "Kan jeg bruke forEach? " +
+          (bokser2.forEach ? "Ja" : "Nei") +
+          "\\n\\n";
+
+        // 4️⃣ Demonstrer forskjellen visuelt:
+        enkel.style.backgroundColor = "lightblue";
+
+        // Prøv å endre HTMLCollection med vanlig løkke
+        for (let boks of bokser1) {
+          boks.style.backgroundColor = "lightgreen";
+        }
+
+        // Prøv å endre NodeList med forEach
+        bokser2.forEach((boks) => (boks.style.border = "2px solid darkgreen"));
+
+        logg.innerText += "🎨 Alle boksene ble oppdatert!\\n";
+      });
+
+      const collection = document.getElementsByTagName("p");
+      const nodelist = document.querySelectorAll("p");
+
+      console.log("Før endring:");
+      console.log("HTMLCollection:", collection.length);
+      console.log("NodeList:", nodelist.length);
+
+      // Legg til et nytt <p>-element
+      const ny = document.createElement("p");
+      ny.innerText = "Fire";
+      document.body.appendChild(ny);
+
+      console.log("Etter endring:");
+      console.log("HTMLCollection:", collection.length); // ⚠️ Blir 4 (oppdatert automatisk)
+      console.log("NodeList:", nodelist.length); // ❌ Fortsatt 3 (ikke live)
+    </script>
+  </body>
+</html>

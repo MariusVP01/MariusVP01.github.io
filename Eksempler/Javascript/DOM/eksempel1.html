@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="no">
+  <head>
+    <meta charset="UTF-8" />
+    <title>DOM-demo</title>
+  </head>
+  <body>
+    <h1 id="overskrift">Hei, verden!</h1>
+    <p class="tekst">Dette er en paragraf.</p>
+    <button id="knapp">Trykk meg</button>
+
+    <script>
+      // Hente elementer
+      const overskrift = document.getElementById("overskrift");
+      const tekst = document.querySelector(".tekst");
+      const knapp = document.getElementById("knapp");
+
+      // Endre tekst og stil
+      overskrift.innerText = "Hei fra JavaScript!";
+      overskrift.style.color = "blue";
+
+      // Legg til hendelse
+      knapp.addEventListener("click", () => {
+        tekst.innerText = "Du trykket på knappen!";
+        tekst.style.color = "red";
+      });
+    </script>
+  </body>
+</html>
