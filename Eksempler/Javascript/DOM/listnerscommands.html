@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="no">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>addEventListener – Eksempler</title>
+    <style>
+      body {
+        font-family: system-ui, sans-serif;
+        background: #f3f4f6;
+        color: #111827;
+        margin: 2rem;
+      }
+
+      h1 {
+        text-align: center;
+        color: #1e3a8a;
+      }
+
+      section {
+        background: white;
+        border-radius: 1rem;
+        padding: 1rem 1.5rem;
+        margin: 1.5rem 0;
+        box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+      }
+
+      button,
+      input {
+        font-size: 1rem;
+        padding: 0.5rem 1rem;
+        border: 1px solid #d1d5db;
+        border-radius: 0.5rem;
+        cursor: pointer;
+        margin-top: 0.5rem;
+      }
+
+      button:hover {
+        background-color: #2563eb;
+        color: white;
+      }
+
+      .output {
+        margin-top: 0.5rem;
+        background: #f9fafb;
+        padding: 0.75rem;
+        border-radius: 0.5rem;
+        border: 1px solid #e5e7eb;
+        min-height: 1.5rem;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>💡 addEventListener – vanlige eksempler</h1>
+
+    <!-- Klikk -->
+    <section>
+      <h2>1️⃣ Klikk-event</h2>
+      <button id="klikkBtn">Trykk meg!</button>
+      <div class="output" id="klikkUt"></div>
+    </section>
+
+    <!-- Dobbeltklikk -->
+    <section>
+      <h2>2️⃣ Dobbeltklikk (dblclick)</h2>
+      <button id="dblBtn">Dobbeltklikk meg</button>
+      <div class="output" id="dblUt"></div>
+    </section>
+
+    <!-- Mus over -->
+    <section>
+      <h2>3️⃣ Mouseover og Mouseout</h2>
+      <div
+        id="hoverBoks"
+        style="
+          width: 200px;
+          height: 100px;
+          background: #dbeafe;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          border-radius: 8px;
+        "
+      >
+        Hold musen over meg 🖱️
+      </div>
+      <div class="output" id="hoverUt"></div>
+    </section>
+
+    <!-- Tastetrykk -->
+    <section>
+      <h2>4️⃣ Tastatur (keydown / keyup)</h2>
+      <input type="text" id="tekstfelt" placeholder="Skriv noe her..." />
+      <div class="output" id="tastUt"></div>
+    </section>
+
+    <!-- Input (sanntid) -->
+    <section>
+      <h2>5️⃣ Input-event (sanntid)</h2>
+      <input type="text" id="navnInput" placeholder="Skriv navnet ditt" />
+      <div class="output" id="navnUt"></div>
+    </section>
+
+    <!-- Sidehendelser -->
+    <section>
+      <h2>6️⃣ Sidehendelser (load / resize)</h2>
+      <div class="output" id="sideUt"></div>
+    </section>
+
+    <script>
+      // --- 1) Klikk ---
+      const klikkBtn = document.getElementById("klikkBtn");
+      const klikkUt = document.getElementById("klikkUt");
+      klikkBtn.addEventListener("click", () => {
+        klikkUt.textContent = "Du trykket på knappen! ✅";
+      });
+
+      // --- 2) Dobbeltklikk ---
+      const dblBtn = document.getElementById("dblBtn");
+      const dblUt = document.getElementById("dblUt");
+      dblBtn.addEventListener("dblclick", () => {
+        dblUt.textContent = "Dobbeltklikk registrert! 🖱️🖱️";
+      });
+
+      // --- 3) Mouseover og Mouseout ---
+      const hoverBoks = document.getElementById("hoverBoks");
+      const hoverUt = document.getElementById("hoverUt");
+
+      hoverBoks.addEventListener("mouseover", () => {
+        hoverBoks.style.background = "#93c5fd";
+        hoverUt.textContent = "Musen er over boksen!";
+      });
+
+      hoverBoks.addEventListener("mouseout", () => {
+        hoverBoks.style.background = "#dbeafe";
+        hoverUt.textContent = "Musen forlot boksen.";
+      });
+
+      // --- 4) Tastatur ---
+      const tekstfelt = document.getElementById("tekstfelt");
+      const tastUt = document.getElementById("tastUt");
+
+      tekstfelt.addEventListener("keydown", (event) => {
+        tastUt.textContent = `Du trykket: ${event.key}`;
+      });
+
+      tekstfelt.addEventListener("keyup", () => {
+        tastUt.textContent += " (slapp tasten)";
+      });
+
+      // --- 5) Input-event ---
+      const navnInput = document.getElementById("navnInput");
+      const navnUt = document.getElementById("navnUt");
+
+      navnInput.addEventListener("input", () => {
+        const verdi = navnInput.value.trim();
+        if (verdi) {
+          navnUt.textContent = `Hei, ${verdi}! 👋`;
+        } else {
+          navnUt.textContent = "";
+        }
+      });
+
+      // --- 6) Sidehendelser ---
+      const sideUt = document.getElementById("sideUt");
+
+      window.addEventListener("load", () => {
+        sideUt.textContent = "Siden er lastet ferdig! 🌍";
+      });
+
+      window.addEventListener("resize", () => {
+        sideUt.textContent = `Vindustørrelse: ${window.innerWidth} x ${window.innerHeight}`;
+      });
+    </script>
+  </body>
+</html>

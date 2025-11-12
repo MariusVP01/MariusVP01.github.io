@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="no">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Snake – WASD-demo</title>
+    <style>
+      * {
+        box-sizing: border-box;
+        font-family: system-ui, sans-serif;
+      }
+
+      body {
+        background: #0f172a;
+        color: #e5e7eb;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 1rem;
+        padding: 1.5rem;
+        min-height: 100vh;
+      }
+
+      h1 {
+        margin: 0;
+        font-size: 1.6rem;
+      }
+
+      .info {
+        text-align: center;
+        font-size: 0.95rem;
+        color: #9ca3af;
+      }
+
+      .game-wrapper {
+        margin-top: 1rem;
+        padding: 1rem;
+        border-radius: 1rem;
+        background: #020617;
+        box-shadow: 0 15px 30px rgba(0, 0, 0, 0.5);
+        border: 1px solid #1f2937;
+      }
+
+      /* Selve brettet: 15x15 ruter */
+      .board {
+        display: grid;
+        grid-template-columns: repeat(15, 24px);
+        grid-template-rows: repeat(15, 24px);
+        gap: 2px;
+        background: #020617;
+        padding: 4px;
+        border-radius: 0.75rem;
+      }
+
+      .cell {
+        width: 24px;
+        height: 24px;
+        background: #111827;
+        border-radius: 4px;
+      }
+
+      .cell.snake {
+        background: #22c55e;
+        box-shadow: 0 0 8px rgba(34, 197, 94, 0.8);
+      }
+
+      .status {
+        margin-top: 0.75rem;
+        font-size: 0.9rem;
+        color: #9ca3af;
+        text-align: center;
+      }
+
+      .keys {
+        margin-top: 0.5rem;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.4rem;
+        justify-content: center;
+        font-size: 0.8rem;
+      }
+
+      .key {
+        padding: 0.2rem 0.5rem;
+        border-radius: 0.4rem;
+        border: 1px solid #4b5563;
+        background: #020617;
+        min-width: 28px;
+        text-align: center;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Enkel Snake / WASD-demo 🐍</h1>
+    <p class="info">
+      Bruk <strong>W A S D</strong> eller piltastene for å flytte den grønne
+      ruten rundt på brettet.<br />
+      Dette er en begynnelse på et slangespill – kun hodet beveger seg
+      foreløpig.
+    </p>
+
+    <div class="game-wrapper">
+      <div id="board" class="board"></div>
+      <div class="status" id="status">
+        Trykk en tast (W/A/S/D eller piltast) for å starte bevegelse.
+      </div>
+      <div class="keys">
+        <div class="key">W</div>
+        <div class="key">A</div>
+        <div class="key">S</div>
+        <div class="key">D</div>
+        <div class="key">↑</div>
+        <div class="key">←</div>
+        <div class="key">↓</div>
+        <div class="key">→</div>
+      </div>
+    </div>
+
+    <script>
+      // Størrelse på brettet (15x15)
+      const COLS = 15;
+      const ROWS = 15;
+
+      const board = document.getElementById("board");
+      const statusEl = document.getElementById("status");
+
+      // Lager rutene (div.cell) dynamisk
+      const cells = [];
+      for (let row = 0; row < ROWS; row++) {
+        for (let col = 0; col < COLS; col++) {
+          const cell = document.createElement("div");
+          cell.classList.add("cell");
+          board.appendChild(cell);
+          cells.push(cell);
+        }
+      }
+
+      // Slangens posisjon (bare hodet foreløpig)
+      let snakeX = Math.floor(COLS / 2); // kolonne
+      let snakeY = Math.floor(ROWS / 2); // rad
+
+      // Retning (dx, dy) – hvor mye vi flytter oss per "tick"
+      let dx = 0;
+      let dy = 0;
+
+      // Hjelpefunksjon for å finne index i cells-arrayen
+      function index(x, y) {
+        return y * COLS + x;
+      }
+
+      // Tegner slangen (fjerner gammel og markerer ny)
+      function drawSnake() {
+        // Nullstill alle celler
+        cells.forEach((cell) => cell.classList.remove("snake"));
+
+        // Marker slangens nåværende posisjon
+        cells[index(snakeX, snakeY)].classList.add("snake");
+      }
+
+      // Flytt slangen ett steg
+      function moveSnake() {
+        // Hvis retning er (0,0) står slangen stille
+        if (dx === 0 && dy === 0) return;
+
+        let newX = snakeX + dx;
+        let newY = snakeY + dy;
+
+        // Stopp i veggen (bare en enkel demo):
+        if (newX < 0) newX = 0;
+        if (newX >= COLS) newX = COLS - 1;
+        if (newY < 0) newY = 0;
+        if (newY >= ROWS) newY = ROWS - 1;
+
+        snakeX = newX;
+        snakeY = newY;
+
+        drawSnake();
+      }
+
+      // Lytt på tastetrykk (keydown)
+      document.addEventListener("keydown", (event) => {
+        const key = event.key.toLowerCase();
+
+        // Forhindrer at piltaster scroller siden
+        if (["arrowup", "arrowdown", "arrowleft", "arrowright"].includes(key)) {
+          event.preventDefault();
+        }
+
+        if (key === "w" || key === "arrowup") {
+          dx = 0;
+          dy = -1;
+          statusEl.textContent = "Retning: OPP (W / ↑)";
+        } else if (key === "s" || key === "arrowdown") {
+          dx = 0;
+          dy = 1;
+          statusEl.textContent = "Retning: NED (S / ↓)";
+        } else if (key === "a" || key === "arrowleft") {
+          dx = -1;
+          dy = 0;
+          statusEl.textContent = "Retning: VENSTRE (A / ←)";
+        } else if (key === "d" || key === "arrowright") {
+          dx = 1;
+          dy = 0;
+          statusEl.textContent = "Retning: HØYRE (D / →)";
+        }
+      });
+
+      // Oppdater slangen hver 150 ms
+      setInterval(moveSnake, 150);
+
+      // Tegn startposisjon
+      drawSnake();
+    </script>
+  </body>
+</html>
