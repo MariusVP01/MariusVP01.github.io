@@ -154,7 +154,7 @@ Sorter først etter spilleliste, deretter artist.
 
 ## Oppgave 6
 
-Vis alle kunder sammen med fakturaene deres.
+Vis alle kunder med etternavn som starter på "M" sammen med fakturaene deres.
 
 Kolonner:
 
@@ -175,7 +175,7 @@ Sorter etter fakturadato, nyeste først.
 
 ## Oppgave 7
 
-Vis alle kjøp med:
+Vis alle kjøp med, men kun totalbeløp over 5
 
 - kundens navn
 - fakturadato
